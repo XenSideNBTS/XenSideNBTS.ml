@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<style type="text/css">
+	body {
+		background-color: #222;
+		color: #fff;
+		padding: 0 5px;
+		font-family: 'Roboto', sans-serif;
+	}
+	h3 {
+		margin: 20px 0 10px 0;
+	}
+	p {
+		margin: 0;
+	}
+  .category {
+    display: none;
+  }
+</style>
+<body>
+
+<div class="category" id="cat_general" data-name="ru">
+<h3>ОЧЕНЬ ВАЖНО</h3>
+<p>ЕСЛИ ВЫЛЕТАЕТ ПРИ ВКЛЮЧЕНИИ ПРЕМИУМА ТО ПОДОЖДИ 20-30 СЕКУНД ПОСЛЕ ЗАПУСКА!!!</p>
+<h3>❗️ Крашит на серверах?</h3>
+
+<h3>1. Зайди в одиночный мир.</h3>
+<h3>2.Что-то поделай секунд 10.</h3>
+<h3>3.Выходи и играй на серверах.</h3>
+
+<h3>ℹ️Если не помогло то помочь ничем не могу.</h3>
+
+
+</div>
+
+<div class="category" id="cat_movement" data-name="ENG">
+
+<h3>VERY IMPORTANT</h3>
+<p>IF Crashes WHEN PREMIUM IS ON, THEN WAIT 20-30 SECONDS AFTER LAUNCH!!!</p>
+<h3>❗️ Crash on servers?</h3>
+
+<h3>1. Enter the singleplayer world.</h3>
+<h3>2. Do something seconds 5-10</h3>
+<h3>3. EXIT and play on servers </h3>
+
+<h3>ℹ️If it didn’t help, then I can’t help.</h3>
+
+
+</div>
+
+<div class="category" id="cat_world" data-name=" ">
+<h3> </h3>
+<p> </p>
+
+</div>
+
+<div class="category" id="cat_render" data-name=" ">
+
+</div>
+</div>
+
+<div class="category" id="cat_command" data-name=" ">
+<h3> </h3>
+<p> </p>
+</div>
+
+<div class="category" id="cat_combat" data-name=" ">
+<h3> </h3>
+<p> </p>
+
+</div>
+
+<script>
+(function() {
+
+var CATEGORIES = ["general", "movement", "world", "render", "command", "combat"];
+
+var categoryDOM = [];
+var categoryNames = [];
+for (var i = 0; i < CATEGORIES.length; i++) {
+  var el = document.getElementById("cat_" + CATEGORIES[i]);
+  categoryDOM.push(el);
+  categoryNames.push(el.dataset.name);
+}
+var currentCategory = null;
+function setActiveCategory(cat) {
+  if (currentCategory !== null)
+    currentCategory.style.display = "";
+  currentCategory = cat;
+  cat.style.display = "block";
+}
+setActiveCategory(categoryDOM[0]);
+window.setActiveCategory = function (index) {
+  setActiveCategory(categoryDOM[index]);
+};
+ToolboxHelp.registerCategories(CATEGORIES, categoryNames);
+
+})();
+</script>
+</body>
+</html>
